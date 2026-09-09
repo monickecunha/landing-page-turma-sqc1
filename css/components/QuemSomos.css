@@ -1,0 +1,535 @@
+
+    /* =====================================================
+       QUEM SOMOS
+       Fullstack 5.0 — Turma 2026
+       ===================================================== */
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+
+    padding: 110px 7%;
+    background:
+            linear-gradient(
+                    rgba(11, 15, 23, 0.96),
+                    rgba(11, 15, 23, 0.99)
+            );
+
+    color: #ffffff;
+}
+
+/* Grid tecnológico de fundo */
+.about-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+            linear-gradient(
+                    rgba(0, 230, 118, 0.035) 1px,
+                    transparent 1px
+            ),
+            linear-gradient(
+                    90deg,
+                    rgba(0, 230, 118, 0.035) 1px,
+                    transparent 1px
+            );
+
+    background-size: 45px 45px;
+
+    pointer-events: none;
+}
+
+/* Brilho neon */
+.about-section::after {
+    content: "";
+
+    position: absolute;
+    width: 450px;
+    height: 450px;
+
+    top: -200px;
+    right: -180px;
+
+    background: #7c4dff;
+    opacity: 0.08;
+
+    filter: blur(120px);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   CONTAINER
+   ===================================================== */
+
+.about-container {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   DECORAÇÕES
+   ===================================================== */
+
+.about-bracket {
+    position: absolute;
+
+    font-family: "Courier New", monospace;
+    font-size: 160px;
+    font-weight: bold;
+
+    color: #00e676;
+    opacity: 0.08;
+
+    pointer-events: none;
+}
+
+.about-bracket--left {
+    left: -70px;
+    top: 180px;
+}
+
+.about-bracket--right {
+    right: -70px;
+    bottom: 180px;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.about-header {
+    max-width: 750px;
+    margin-bottom: 65px;
+}
+
+.section-tag {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    color: #00e676;
+}
+
+.about-header h2 {
+    margin: 0 0 22px;
+
+    font-family:
+            "Arial",
+            "Helvetica Neue",
+            sans-serif;
+
+    font-size: clamp(32px, 5vw, 46px);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.about-header h2 span {
+    color: #00e676;
+}
+
+.about-intro {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: #9ca3af;
+
+    font-family:
+            "Arial",
+            "Helvetica Neue",
+            sans-serif;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL
+   ===================================================== */
+
+.about-content {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(350px, 0.8fr);
+
+    gap: 70px;
+
+    align-items: center;
+
+    margin-bottom: 75px;
+}
+
+.about-text p {
+    margin: 0 0 22px;
+
+    color: #9ca3af;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   CARD DE CÓDIGO
+   ===================================================== */
+
+.about-code-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #121824;
+
+    border: 1px solid rgba(0, 230, 118, 0.18);
+    border-radius: 14px;
+
+    box-shadow:
+            0 0 35px rgba(0, 230, 118, 0.06),
+            inset 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.about-code-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+
+    background: #00e676;
+}
+
+
+/* Barra superior */
+
+.code-card-header {
+    display: flex;
+
+    align-items: center;
+    gap: 14px;
+
+    padding: 14px 18px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    color: #9ca3af;
+
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+}
+
+.window-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.window-dots span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #9ca3af;
+    opacity: 0.4;
+}
+
+
+/* Código */
+
+.code-content {
+    padding: 25px 20px;
+
+    font-family:
+            "Courier New",
+            monospace;
+
+    font-size: 13px;
+    line-height: 2;
+}
+
+.code-line {
+    display: block;
+    white-space: nowrap;
+}
+
+.code-number {
+    display: inline-block;
+
+    width: 28px;
+
+    color: #4b5563;
+
+    user-select: none;
+}
+
+.code-indent {
+    padding-left: 25px;
+}
+
+.code-keyword {
+    color: #7c4dff;
+}
+
+.code-variable {
+    color: #00b0ff;
+}
+
+.code-property {
+    color: #ffffff;
+}
+
+.code-string {
+    color: #fde047;
+}
+
+
+/* =====================================================
+   HIGHLIGHT
+   ===================================================== */
+
+.about-highlight {
+    display: grid;
+
+    grid-template-columns: 70px 1fr;
+
+    gap: 25px;
+
+    padding: 35px;
+
+    margin-bottom: 45px;
+
+    background: #121824;
+
+    border: 1px solid rgba(124, 77, 255, 0.3);
+    border-left: 3px solid #7c4dff;
+
+    border-radius: 12px;
+
+    box-shadow:
+            0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+
+    border: 1px solid #00e676;
+    border-radius: 10px;
+
+    color: #00e676;
+
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    font-weight: bold;
+
+    box-shadow:
+            0 0 20px rgba(0, 230, 118, 0.1);
+}
+
+.highlight-tag {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #7c4dff;
+
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about-highlight h3 {
+    margin: 0 0 12px;
+
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.about-highlight p {
+    max-width: 800px;
+
+    margin: 0;
+
+    color: #9ca3af;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   PILARES
+   ===================================================== */
+
+.about-pillars {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 55px;
+}
+
+.pillar {
+    position: relative;
+
+    padding: 25px;
+
+    background: rgba(18, 24, 36, 0.75);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+
+    transition:
+            transform 0.25s ease,
+            border-color 0.25s ease;
+}
+
+.pillar:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(0, 230, 118, 0.45);
+}
+
+.pillar-number {
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: #00e676;
+
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.pillar strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-family: "Courier New", monospace;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.pillar small {
+    color: #9ca3af;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   FOOTER DA SEÇÃO
+   ===================================================== */
+
+.about-footer {
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    color: #9ca3af;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.about-footer strong {
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+   ===================================================== */
+
+@media (max-width: 850px) {
+
+    .about-section {
+        padding: 80px 6%;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .about-code-card {
+        max-width: 600px;
+    }
+
+    .about-pillars {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .about-section {
+        padding: 65px 5%;
+    }
+
+    .about-header h2 {
+        font-size: 34px;
+    }
+
+    .about-highlight {
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+    }
+
+    .highlight-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .code-content {
+        padding: 20px 12px;
+
+        font-size: 11px;
+    }
+
+    .code-indent {
+        padding-left: 15px;
+    }
+
+    .about-bracket {
+        display: none;
+    }
+}
