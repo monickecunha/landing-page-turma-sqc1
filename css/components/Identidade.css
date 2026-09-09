@@ -1,0 +1,363 @@
+/* =========================================================
+   IDENTITY.CSS — Turma FullStack 5.0 (SQC1)
+   Menu de identidade / Header
+   Baseado no Brand Book oficial:
+     - Dark Mode Tecnológico com Grid Cyberpunk Neon
+     - Fonte títulos: Sans-Serif Geometric (Display)
+     - Fonte código/badges: Monospace
+     - Cores: #0B0F17 (fundo), #121824 (cards),
+              #00E676 (verde neon / principal),
+              #7C4DFF (roxo / lilás / secundário)
+   ========================================================= */
+
+:root {
+  /* Cores — Paleta oficial */
+  --bg-primary: #0b0f17;
+  --bg-secondary: #121824;
+  --accent-primary: #00e676;
+  --accent-primary-soft: rgba(0, 230, 118, 0.12);
+  --accent-secondary: #7c4dff;
+  --accent-secondary-soft: rgba(124, 77, 255, 0.14);
+  --accent-cyan: #00b0ff;
+  --accent-yellow: #fde047;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --border-subtle: rgba(156, 163, 175, 0.16);
+
+  /* Tipografia */
+  --font-display: "Poppins", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+
+  /* Layout */
+  --header-height: 84px;
+  --slogan-height: 34px;
+  --container-max: 1240px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.identity-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(11, 15, 23, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-body);
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.identity-header.is-scrolled {
+  background: rgba(11, 15, 23, 0.94);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  border-bottom-color: rgba(0, 230, 118, 0.22);
+}
+
+.identity-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  height: var(--header-height);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ---------- Logo ---------- */
+
+.identity-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.identity-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 230, 118, 0.35));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.identity-logo:hover .identity-logo-img {
+  filter: drop-shadow(0 0 16px rgba(0, 230, 118, 0.55));
+  transform: translateY(-1px);
+}
+
+.identity-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.identity-brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.identity-tagline {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+}
+
+/* ---------- Navegação ---------- */
+
+.identity-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.identity-nav-link {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 6px 0;
+  transition: color 0.25s ease;
+}
+
+.identity-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  box-shadow: 0 0 8px rgba(0, 230, 118, 0.7);
+  transition: width 0.25s ease;
+}
+
+.identity-nav-link:hover {
+  color: var(--text-primary);
+}
+
+.identity-nav-link:hover::after {
+  width: 100%;
+}
+
+.identity-nav-link.is-active {
+  color: var(--accent-primary);
+}
+
+.identity-nav-link.is-active::after {
+  width: 100%;
+}
+
+/* ---------- CTA ---------- */
+
+.identity-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #04140c;
+  background: var(--accent-primary);
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 0 0 rgba(0, 230, 118, 0);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.identity-cta:hover {
+  background: #29f28d;
+  box-shadow: 0 0 22px rgba(0, 230, 118, 0.55);
+  transform: translateY(-1px);
+}
+
+.identity-cta:active {
+  transform: translateY(0);
+}
+
+/* ---------- Toggle (mobile) ---------- */
+
+.identity-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.identity-toggle span {
+  width: 18px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.identity-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.identity-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.identity-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- Faixa do slogan ---------- */
+
+.identity-slogan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: var(--slogan-height);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+}
+
+.identity-slogan-bracket {
+  color: var(--accent-secondary);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.identity-slogan-text {
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+}
+
+.identity-slogan-text::before {
+  content: none;
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 860px) {
+  .identity-container {
+    padding: 0 20px;
+  }
+
+  .identity-toggle {
+    display: flex;
+  }
+
+  .identity-cta {
+    display: none;
+  }
+
+  .identity-nav {
+    position: fixed;
+    top: calc(var(--header-height) + var(--slogan-height));
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(11, 15, 23, 0.98);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: max-height 0.35s ease;
+  }
+
+  .identity-nav.is-open {
+    max-height: 320px;
+  }
+
+  .identity-nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 20px 20px;
+  }
+
+  .identity-nav-list li {
+    width: 100%;
+  }
+
+  .identity-nav-link {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .identity-nav-link::after {
+    display: none;
+  }
+
+  .identity-tagline {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .identity-slogan-text {
+    font-size: 10.5px;
+    text-align: center;
+    max-width: 78vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .identity-brand {
+    font-size: 17px;
+  }
+}
+
+/* Espaçador — usar no body/primeira seção para compensar o header fixo */
+.identity-spacer {
+  height: calc(var(--header-height) + var(--slogan-height));
+}
+
+/* Acessibilidade — respeita preferência de menos animações */
+@media (prefers-reduced-motion: reduce) {
+  .identity-header,
+  .identity-nav,
+  .identity-toggle span,
+  .identity-nav-link,
+  .identity-nav-link::after,
+  .identity-cta,
+  .identity-logo-img {
+    transition: none !important;
+  }
+}
+
+.identity-nav-link:focus-visible,
+.identity-cta:focus-visible,
+.identity-toggle:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
