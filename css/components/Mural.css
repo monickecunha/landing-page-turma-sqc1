@@ -1,0 +1,20 @@
+.mural__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.mural-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 170px;
+}
+
+.mural-card__quote {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.mural-card__author {
+  overflow-wrap: anywhere;
+}
