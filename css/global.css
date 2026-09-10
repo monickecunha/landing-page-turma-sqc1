@@ -1,0 +1,251 @@
+/* ========================================
+   GLOBAL
+   Identidade visual — Turma Full Stack 5.0
+======================================== */
+
+/* ---------- Design Tokens ---------- */
+
+:root {
+    /* Brand colors */
+    --color-bg-primary: #0b0f17;
+    --color-bg-secondary: #121824;
+
+    --color-primary: #00e676;
+    --color-secondary: #7c4dff;
+
+    --color-white: #ffffff;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #9ca3af;
+
+    --color-cyan: #00b0ff;
+    --color-yellow: #fde047;
+
+    /* Cores derivadas para estrutura */
+    --color-border: rgba(156, 163, 175, 0.18);
+    --color-border-hover: rgba(0, 230, 118, 0.45);
+
+    /* Tipografia */
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Font sizes */
+    --font-size-xs: 0.75rem;     /* 12px */
+    --font-size-sm: 0.875rem;    /* 14px */
+    --font-size-base: 1rem;      /* 16px */
+    --font-size-lg: 1.125rem;    /* 18px */
+    --font-size-xl: 1.25rem;     /* 20px */
+
+    --font-size-h3: clamp(1.125rem, 1.5vw, 1.25rem);
+    --font-size-h2: clamp(2rem, 3vw, 2.25rem);
+    --font-size-h1: clamp(2.625rem, 5vw, 3rem);
+
+    /* Font weights */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* Espaçamento */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-section: 6rem;
+
+    /* Layout */
+    --container-width: 1220px;
+    --container-padding: 1.5rem;
+
+    /* Bordas */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+
+    /* Transições */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+}
+
+
+/* ---------- Reset ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+
+/* ---------- Tipografia global ---------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-extrabold);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-semibold);
+}
+
+p {
+    color: var(--color-text-secondary);
+}
+
+code,
+pre,
+kbd,
+samp {
+    font-family: var(--font-mono);
+}
+
+
+/* ---------- Layout global ---------- */
+
+#app {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+}
+
+.container {
+    width: min(
+        calc(100% - (var(--container-padding) * 2)),
+        var(--container-width)
+    );
+
+    margin-inline: auto;
+}
+
+
+/* ---------- Estrutura das seções ---------- */
+
+.section {
+    padding-block: var(--spacing-section);
+}
+
+.section__header {
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-lg);
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+
+/* ---------- Elementos de identidade ---------- */
+
+.section__eyebrow,
+.badge,
+.tag {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.section__eyebrow {
+    color: var(--color-primary);
+}
+
+.section__description {
+    margin-top: var(--spacing-xs);
+    color: var(--color-text-secondary);
+}
+
+
+/* ---------- Acessibilidade ---------- */
+
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+}
+
+
+/* ---------- Responsividade ---------- */
+
+@media (max-width: 768px) {
+    :root {
+        --container-padding: 1rem;
+        --spacing-section: 4rem;
+    }
+}
