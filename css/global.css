@@ -239,13 +239,3 @@ main {
     background-color: var(--color-primary);
     color: var(--color-bg-primary);
 }
-
-
-/* ---------- Responsividade ---------- */
-
-@media (max-width: 768px) {
-    :root {
-        --container-padding: 1rem;
-        --spacing-section: 4rem;
-    }
-}

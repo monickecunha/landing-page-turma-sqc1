@@ -23,6 +23,7 @@ const renderCards = (cards) => {
 export const renderMural = () => {
     return `
         <section class="mural" id="mural">
+            <div class="container mural__container">
             <header class="mural__header">
                 <div class="mural__intro">
                     <span class="mural__eyebrow">
@@ -45,6 +46,7 @@ export const renderMural = () => {
 
             <div class="mural__cards">
                 ${renderCards(muralData)}
+            </div>
             </div>
         </section>
     `;
