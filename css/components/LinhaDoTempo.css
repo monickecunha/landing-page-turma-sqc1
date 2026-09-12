@@ -70,19 +70,3 @@
 .linha-tempo__card h3 {
     margin-bottom: var(--spacing-xs);
 }
-
-/* ---------- Mobile ---------- */
-@media (max-width: 768px) {
-    .linha-tempo__trilha {
-        flex-direction: column;
-        gap: var(--spacing-xl);
-    }
-
-    .linha-tempo__item {
-        flex-direction: column;
-    }
-
-    .linha-tempo__item:not(:last-child) .linha-tempo__marcador::after {
-        display: none;
-    }
-}
