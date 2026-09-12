@@ -1,0 +1,88 @@
+.linha-tempo__trilha {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.linha-tempo__item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--spacing-md);
+}
+
+.linha-tempo__marcador {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    width: 100%;
+}
+
+.linha-tempo__bolinha {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background-color: var(--color-bg-primary);
+}
+
+.linha-tempo__item:not(:last-child) .linha-tempo__marcador::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    margin-left: var(--spacing-sm);
+    margin-right: calc(-1 * var(--spacing-lg));
+    background-color: var(--color-border);
+}
+
+.linha-tempo__label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.linha-tempo__card {
+    padding: var(--spacing-lg);
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-base), border-color var(--transition-base);
+    flex: 1;
+}
+
+.linha-tempo__card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-border-hover);
+}
+
+.linha-tempo__card .badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    margin-bottom: var(--spacing-sm);
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+    border-radius: var(--radius-sm);
+}
+
+.linha-tempo__card h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+    .linha-tempo__trilha {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+
+    .linha-tempo__item {
+        flex-direction: column;
+    }
+
+    .linha-tempo__item:not(:last-child) .linha-tempo__marcador::after {
+        display: none;
+    }
+}
