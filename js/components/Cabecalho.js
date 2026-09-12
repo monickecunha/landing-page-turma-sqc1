@@ -15,11 +15,12 @@ export function renderCabecalho() {
       </a>
       <nav class="navbar__nav" aria-label="Navegação principal">
         <ul class="navbar__list" id="navbar-list">
-          <li><a href="#id_turma" class="navbar__link">Início</a></li>
+          <li><a href="#" class="navbar__link" data-scroll-target=".identidade">Início</a></li>
           <li><a href="#quem_somos" class="navbar__link">Quem Somos</a></li>
-          <li><a href="#integrantes" class="navbar__link">Integrantes</a></li>
-          <li><a href="#mural_turma" class="navbar__link">Mural</a></li>
+          <li><a href="#membros" class="navbar__link">Integrantes</a></li>
+          <li><a href="#mural" class="navbar__link">Mural</a></li>
           <li><a href="#linha_tempo" class="navbar__link">Percurso</a></li>
+          
         </ul>
       </nav>
       <button
@@ -61,6 +62,16 @@ export function initCabecalho() {
     // Fecha o menu ao clicar em um link (útil no mobile)
     list.querySelectorAll('.navbar__link').forEach((link) => {
         link.addEventListener('click', closeMenu);
+    });
+
+    // Links de seções sem "id" (ex.: Identidade e Rodapé) rolam até o
+    // elemento pela classe, já que não podemos alterar os arquivos delas.
+    list.querySelectorAll('.navbar__link[data-scroll-target]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const target = document.querySelector(link.dataset.scrollTarget);
+            target?.scrollIntoView({ behavior: 'smooth' });
+        });
     });
 
     // Fecha o menu se a tela for redimensionada para desktop
