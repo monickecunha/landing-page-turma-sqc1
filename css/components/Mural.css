@@ -1,0 +1,99 @@
+ /* ---------- card ---------- */
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--superficie);
+    border: 1px solid var(--linha);
+    border-left: 3px solid var(--neon);
+    border-radius: var(--raio);
+    overflow: hidden;
+    min-width: 0;
+  }
+ 
+  .card__foto {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background: var(--superficie-alta);
+  }
+  .card__foto img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+  /* avatar alternativo: aparece quando não há <img> ou quando a imagem falha */
+  .card__foto::after {
+    content: attr(data-iniciais);
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-family: var(--mono);
+    font-size: 2rem;
+    letter-spacing: .05em;
+    color: var(--neon);
+    background:
+      radial-gradient(circle at 50% 38%, rgba(34, 224, 124, .14), transparent 60%),
+      var(--superficie-alta);
+  }
+ 
+  .card__corpo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+    padding: var(--espaco);
+    min-width: 0;
+  }
+ 
+  .card__nome {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+ 
+  .card__meta {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: .72rem;
+    color: var(--texto-fraco);
+    overflow-wrap: anywhere;
+  }
+ 
+  .card__descricao {
+    margin: 4px 0 0;
+    font-size: .85rem;
+    line-height: 1.55;
+    color: var(--texto-fraco);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+ 
+  .card__acao {
+    margin-top: auto;
+    padding-top: 14px;
+    font-family: var(--mono);
+    font-size: .75rem;
+    color: var(--neon);
+    text-decoration: none;
+    border-bottom: 0;
+    width: fit-content;
+  }
+  .card__acao:hover { text-decoration: underline; }
+  .card__acao:focus-visible {
+    outline: 2px solid var(--neon);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
