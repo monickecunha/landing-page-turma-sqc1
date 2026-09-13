@@ -16,10 +16,11 @@ export function renderCabecalho() {
       <nav class="navbar__nav" aria-label="Navegação principal">
         <ul class="navbar__list" id="navbar-list">
           <li><a href="#" class="navbar__link" data-scroll-target=".identidade">Início</a></li>
-          <li><a href="#quem_somos" class="navbar__link">Quem Somos</a></li>
-          <li><a href="#membros" class="navbar__link">Integrantes</a></li>
-          <li><a href="#mural" class="navbar__link">Mural</a></li>
           <li><a href="#linha_tempo" class="navbar__link">Percurso</a></li>
+          <li><a href="#mural" class="navbar__link">Mural</a></li>          
+          <li><a href="#membros" class="navbar__link">Equipe</a></li>
+          
+          
           
         </ul>
       </nav>

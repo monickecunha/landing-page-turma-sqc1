@@ -79,21 +79,6 @@
   color: #FFFFFF;
 }
 
-.navbar__link.is-active {
-  color: #FFFFFF;
-}
-
-.navbar__link.is-active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 2px;
-  background: #00E676;
-  border-radius: 2px;
-}
-
 .navbar__link:focus-visible {
   outline: 2px solid #7C4DFF;
   outline-offset: 4px;
