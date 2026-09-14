@@ -27,7 +27,7 @@ export const renderMural = () => {
             <header class="mural__header">
                 <div class="mural__intro">
                     <span class="mural__eyebrow">
-                        04 / MURAL
+                        02 / MURAL
                     </span>
 
                     <h2 class="mural__title">
