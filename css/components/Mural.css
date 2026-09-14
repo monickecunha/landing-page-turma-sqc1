@@ -1,134 +1,229 @@
-.mural {
-    padding-block: var(--spacing-section);
-}
 
-.mural__container {
-    width: 100%;
-    max-width: var(--container-width);
-    margin-inline: auto;
-    padding-inline: var(--container-padding);
-}
-
-
-/* ---------- Header ---------- */
-
-.mural__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-
-    margin-bottom: var(--spacing-2xl);
-    padding-bottom: var(--spacing-lg);
-
-    border-bottom: 1px solid var(--color-border);
-}
-
-.mural__eyebrow {
-    display: block;
-    margin-bottom: var(--spacing-xs);
-
-    color: var(--color-primary);
-
-    font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
-
-    text-transform: uppercase;
-}
-
-.mural__title {
-    margin-bottom: var(--spacing-xs);
-}
-
-.mural__description {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-sm);
-}
-
-.mural__label {
-    color: var(--color-text-secondary);
-
-    font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-
-/* ---------- Grid ---------- */
-
-.mural__cards {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 1.5rem;
-}
-
-
-/* ---------- Card ---------- */
-
-.mural-card {
-    display: flex;
-    flex-direction: column;
-
-    min-height: 170px;
-
-    padding: 1.25rem;
-
-    background-color: var(--color-bg-secondary);
-
-    border: 1px solid var(--color-border);
-    border-top: 3px solid var(--color-primary);
-    border-radius: var(--radius-sm);
-
-    transition:
-        transform var(--transition-base),
-        border-color var(--transition-base);
-}
-
-.mural-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-primary);
-}
-
-
-/* ---------- Frase ---------- */
-
-.mural-card__quote {
-    flex: 1;
-
-    margin: 0;
-    padding: 0;
-
-    color: var(--color-text-primary);
-
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-
-    line-height: 1.5;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* ---------- Autor ---------- */
-
-.mural-card__footer {
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-sm);
-
-    border-top: 1px dashed var(--color-border);
-}
-
-.mural-card__author {
-    color: var(--color-text-secondary);
-
-    font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-
-    overflow-wrap: anywhere;
+.mural { 
+    padding-block: var(--spacing-section); 
+} 
+ 
+.mural__container { 
+    width: 100%; 
+    max-width: var(--container-width); 
+    margin-inline: auto; 
+    padding-inline: var(--container-padding); 
+} 
+ 
+ 
+/* ---------- Header ---------- */ 
+ 
+.mural__header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-end; 
+    gap: var(--spacing-lg); 
+ 
+    margin-bottom: var(--spacing-2xl); 
+    padding-bottom: var(--spacing-lg); 
+ 
+    border-bottom: 1px solid var(--color-border); 
+} 
+ 
+.mural__eyebrow { 
+    display: block; 
+    margin-bottom: var(--spacing-xs); 
+ 
+    color: var(--color-primary); 
+ 
+    font-family: var(--font-mono); 
+    font-size: var(--font-size-xs); 
+    font-weight: var(--font-weight-bold); 
+ 
+    text-transform: uppercase; 
+} 
+ 
+.mural__title { 
+    margin-bottom: var(--spacing-xs); 
+} 
+ 
+.mural__description { 
+    color: var(--color-text-secondary); 
+    font-size: var(--font-size-sm); 
+} 
+ 
+.mural__label { 
+    flex-shrink: 0; 
+ 
+    color: var(--color-text-secondary); 
+ 
+    font-family: var(--font-mono); 
+    font-size: var(--font-size-xs); 
+ 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+} 
+ 
+ 
+/* ---------- Grid ---------- */ 
+ 
+.mural__cards { 
+    display: grid; 
+ 
+    /* Telas médias: 2 cards */ 
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+ 
+    gap: 1.5rem; 
+} 
+ 
+ 
+/* ---------- Telas grandes ---------- */ 
+ 
+@media (min-width: 1200px) { 
+    .mural__cards { 
+        /* Telas grandes: 3 cards por linha */ 
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+    } 
+} 
+ 
+ 
+/* ---------- Card ---------- */ 
+ 
+.mural-card { 
+    display: flex; 
+    flex-direction: column; 
+ 
+    min-width: 0; 
+    min-height: 170px; 
+ 
+    padding: 1.25rem; 
+ 
+    background-color: var(--color-bg-secondary); 
+ 
+    border: 1px solid var(--color-border); 
+    border-top: 3px solid var(--color-primary); 
+    border-radius: var(--radius-sm); 
+ 
+    transition: 
+        transform var(--transition-base), 
+        border-color var(--transition-base); 
+} 
+ 
+.mural-card:hover { 
+    transform: translateY(-4px); 
+    border-color: var(--color-primary); 
+} 
+ 
+ 
+/* ---------- Frase ---------- */ 
+ 
+.mural-card__quote { 
+    flex: 1; 
+ 
+    margin: 0; 
+    padding: 0; 
+ 
+    color: var(--color-text-primary); 
+ 
+    font-family: var(--font-body); 
+    font-size: var(--font-size-sm); 
+    font-weight: var(--font-weight-medium); 
+ 
+    line-height: 1.5; 
+ 
+    overflow-wrap: anywhere; 
+} 
+ 
+ 
+/* ---------- Autor ---------- */ 
+ 
+.mural-card__footer { 
+    margin-top: var(--spacing-lg); 
+    padding-top: var(--spacing-sm); 
+ 
+    border-top: 1px dashed var(--color-border); 
+} 
+ 
+.mural-card__author { 
+    color: var(--color-text-secondary); 
+ 
+    font-family: var(--font-mono); 
+    font-size: var(--font-size-xs); 
+ 
+    overflow-wrap: anywhere; 
+} 
+ 
+ 
+/* ---------- Tablet ---------- */ 
+ 
+@media (max-width: 768px) { 
+    .mural__container { 
+        padding-inline: 1rem; 
+    } 
+ 
+    .mural__header { 
+        align-items: flex-start; 
+        flex-direction: column; 
+ 
+        margin-bottom: var(--spacing-xl); 
+    } 
+ 
+    .mural__label { 
+        align-self: flex-start; 
+    } 
+ 
+    .mural__cards { 
+        /* Continua com 2 cards */ 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        gap: 1rem; 
+    } 
+ 
+    .mural-card { 
+        padding: 1rem; 
+    } 
+} 
+ 
+ 
+/* ---------- Mobile ---------- */ 
+ 
+@media (max-width: 560px) { 
+    .mural { 
+        padding-block: var(--spacing-xl); 
+    } 
+ 
+    .mural__header { 
+        margin-bottom: var(--spacing-lg); 
+        padding-bottom: var(--spacing-md); 
+    } 
+ 
+    .mural__cards { 
+        /* Mantém 2 cards no celular */ 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        gap: 0.75rem; 
+    } 
+ 
+    .mural-card { 
+        min-height: 150px; 
+        padding: 0.75rem; 
+    } 
+} 
+ 
+ 
+/* ---------- Mobile pequeno ---------- */ 
+ 
+@media (max-width: 380px) { 
+    .mural__container { 
+        padding-inline: 0.75rem; 
+    } 
+ 
+    .mural__cards { 
+        /* Mantém 2 cards mesmo em telas muito pequenas */ 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        gap: 0.5rem; 
+    } 
+ 
+    .mural-card { 
+        min-height: 140px; 
+        padding: 0.75rem; 
+    } 
+ 
+    .mural-card__quote { 
+        font-size: var(--font-size-xs); 
+    } 
 }
 
