@@ -1,363 +1,149 @@
-/* =========================================================
-   IDENTITY.CSS — Turma FullStack 5.0 (SQC1)
-   Menu de identidade / Header
-   Baseado no Brand Book oficial:
-     - Dark Mode Tecnológico com Grid Cyberpunk Neon
-     - Fonte títulos: Sans-Serif Geometric (Display)
-     - Fonte código/badges: Monospace
-     - Cores: #0B0F17 (fundo), #121824 (cards),
-              #00E676 (verde neon / principal),
-              #7C4DFF (roxo / lilás / secundário)
-   ========================================================= */
-
 :root {
-  /* Cores — Paleta oficial */
-  --bg-primary: #0b0f17;
-  --bg-secondary: #121824;
-  --accent-primary: #00e676;
-  --accent-primary-soft: rgba(0, 230, 118, 0.12);
-  --accent-secondary: #7c4dff;
-  --accent-secondary-soft: rgba(124, 77, 255, 0.14);
-  --accent-cyan: #00b0ff;
-  --accent-yellow: #fde047;
-  --text-primary: #ffffff;
-  --text-secondary: #9ca3af;
-  --border-subtle: rgba(156, 163, 175, 0.16);
-
-  /* Tipografia */
-  --font-display: "Poppins", "Segoe UI", system-ui, sans-serif;
-  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", "Courier New", monospace;
-
-  /* Layout */
-  --header-height: 84px;
-  --slogan-height: 34px;
-  --container-max: 1240px;
+  --bg-dark: #0B0F17;
+  --green: #00E676;
+  --purple-light: #7C4DFF;
+  --text-white: #FFFFFF;
+  --text-gray: #9CA3AF;
+  --font-display: 'Inter', sans-serif; 
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-.identity-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: rgba(11, 15, 23, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border-subtle);
-  font-family: var(--font-body);
-  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.identity-header.is-scrolled {
-  background: rgba(11, 15, 23, 0.94);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  border-bottom-color: rgba(0, 230, 118, 0.22);
-}
-
-.identity-container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  height: var(--header-height);
-  padding: 0 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-/* ---------- Logo ---------- */
-
-.identity-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.identity-logo-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(0, 230, 118, 0.35));
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.identity-logo:hover .identity-logo-img {
-  filter: drop-shadow(0 0 16px rgba(0, 230, 118, 0.55));
-  transform: translateY(-1px);
-}
-
-.identity-logo-text {
+.identidade {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  padding: 40px 8%;
+  font-family: var(--font-display);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  line-height: 1.15;
 }
 
-.identity-brand {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 19px;
-  letter-spacing: 0.02em;
-  color: var(--text-primary);
-}
-
-.identity-tagline {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  color: var(--accent-primary);
-  text-transform: uppercase;
-}
-
-/* ---------- Navegação ---------- */
-
-.identity-nav-list {
+.logo {
   display: flex;
   align-items: center;
-  gap: 36px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.identity-nav-link {
-  position: relative;
-  font-family: var(--font-body);
-  font-size: 14.5px;
-  font-weight: 500;
-  color: var(--text-secondary);
+  gap: 10px;
+  font-weight: 800;
   text-decoration: none;
-  padding: 6px 0;
-  transition: color 0.25s ease;
+  color: var(--text-white);
 }
 
-.identity-nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 2px;
-  background: var(--accent-primary);
-  box-shadow: 0 0 8px rgba(0, 230, 118, 0.7);
-  transition: width 0.25s ease;
+.logo-symbol {
+  font-family: var(--font-mono);
+  font-size: 25px;
+  background: linear-gradient(135deg, var(--purple-light), var(--green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
-.identity-nav-link:hover {
-  color: var(--text-primary);
+.logo-text {
+  font-size: 16px;
+  line-height: 1;
 }
 
-.identity-nav-link:hover::after {
-  width: 100%;
+.logo-text small {
+  display: block;
+  margin-top: 5px;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 1.6px;
 }
 
-.identity-nav-link.is-active {
-  color: var(--accent-primary);
+.identidade-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 80px;
+  gap: 40px;
 }
 
-.identity-nav-link.is-active::after {
-  width: 100%;
+.identidade-texto {
+  max-width: 500px;
 }
 
-/* ---------- CTA ---------- */
-
-.identity-cta {
+.badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 600;
-  color: #04140c;
-  background: var(--accent-primary);
-  padding: 10px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  white-space: nowrap;
-  box-shadow: 0 0 0 rgba(0, 230, 118, 0);
-  transition: box-shadow 0.25s ease, transform 0.25s ease, background 0.25s ease;
-}
-
-.identity-cta:hover {
-  background: #29f28d;
-  box-shadow: 0 0 22px rgba(0, 230, 118, 0.55);
-  transform: translateY(-1px);
-}
-
-.identity-cta:active {
-  transform: translateY(0);
-}
-
-/* ---------- Toggle (mobile) ---------- */
-
-.identity-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.identity-toggle span {
-  width: 18px;
-  height: 2px;
-  background: var(--text-primary);
-  border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.identity-toggle.is-open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.identity-toggle.is-open span:nth-child(2) {
-  opacity: 0;
-}
-
-.identity-toggle.is-open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* ---------- Faixa do slogan ---------- */
-
-.identity-slogan {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  height: var(--slogan-height);
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-subtle);
   font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 1px;
+  margin-bottom: 20px;
 }
 
-.identity-slogan-bracket {
-  color: var(--accent-secondary);
-  font-weight: 700;
-  font-size: 12px;
+.badge .dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--green);
+  border-radius: 50%;
 }
 
-.identity-slogan-text {
-  font-size: 12px;
-  letter-spacing: 0.03em;
-  color: var(--text-secondary);
+.identidade-texto h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
 }
 
-.identity-slogan-text::before {
-  content: none;
+.identidade-texto h1 .highlight {
+  color: var(--green);
 }
 
-/* =========================================================
-   RESPONSIVO
-   ========================================================= */
-
-@media (max-width: 860px) {
-  .identity-container {
-    padding: 0 20px;
-  }
-
-  .identity-toggle {
-    display: flex;
-  }
-
-  .identity-cta {
-    display: none;
-  }
-
-  .identity-nav {
-    position: fixed;
-    top: calc(var(--header-height) + var(--slogan-height));
-    left: 0;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    background: rgba(11, 15, 23, 0.98);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-subtle);
-    transition: max-height 0.35s ease;
-  }
-
-  .identity-nav.is-open {
-    max-height: 320px;
-  }
-
-  .identity-nav-list {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 8px 20px 20px;
-  }
-
-  .identity-nav-list li {
-    width: 100%;
-  }
-
-  .identity-nav-link {
-    display: block;
-    width: 100%;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  .identity-nav-link::after {
-    display: none;
-  }
-
-  .identity-tagline {
-    display: none;
-  }
+.slogan {
+  color: var(--text-gray);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 40px;
 }
 
-@media (max-width: 480px) {
-  .identity-slogan-text {
-    font-size: 10.5px;
-    text-align: center;
-    max-width: 78vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .identity-brand {
-    font-size: 17px;
-  }
+.identidade-botoes {
+  display: flex;
+  gap: 15px;
 }
 
-/* Espaçador — usar no body/primeira seção para compensar o header fixo */
-.identity-spacer {
-  height: calc(var(--header-height) + var(--slogan-height));
+.btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-/* Acessibilidade — respeita preferência de menos animações */
-@media (prefers-reduced-motion: reduce) {
-  .identity-header,
-  .identity-nav,
-  .identity-toggle span,
-  .identity-nav-link,
-  .identity-nav-link::after,
-  .identity-cta,
-  .identity-logo-img {
-    transition: none !important;
-  }
+.btn-primary {
+  background-color: var(--green);
+  color: var(--bg-dark);
 }
 
-.identity-nav-link:focus-visible,
-.identity-cta:focus-visible,
-.identity-toggle:focus-visible {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 3px;
-  border-radius: 4px;
+.btn-primary:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(0, 230, 118, 0.4);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-white);
+  border: 1px solid var(--text-gray);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-white);
+}
+
+/* Símbolo gigante que substitui a imagem */
+.hero-symbol {
+  font-family: var(--font-mono);
+  font-size: 280px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--purple-light), var(--green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  user-select: none;
+  text-shadow: 0px 10px 40px rgba(0, 230, 118, 0.2);
 }
