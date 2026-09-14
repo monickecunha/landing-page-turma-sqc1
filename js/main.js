@@ -12,10 +12,10 @@ app.innerHTML = `
     ${renderCabecalho()}
     <main>
         ${renderIdentidade()}
-        ${renderQuemSomos()}
-        ${renderMembros()}
-        ${renderMural()}
         ${renderLinhaDoTempo()}
+        ${renderMural()}
+        ${renderMembros()}
+        ${renderQuemSomos()}        
     </main>
     ${renderRodape()}
 `;
