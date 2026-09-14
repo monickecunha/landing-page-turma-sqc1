@@ -70,3 +70,20 @@
 .linha-tempo__card h3 {
     margin-bottom: var(--spacing-xs);
 }
+
+/* ---- Adaptacao mobile ---- */
+
+@media (max-width: 768px) {
+  .linha-tempo__trilha {
+    flex-direction: column;
+  }
+
+  .linha-tempo__item {
+    width: 100%;
+  }
+
+  .linha-tempo__marcador {
+    overflow: hidden;
+  }
+
+}
