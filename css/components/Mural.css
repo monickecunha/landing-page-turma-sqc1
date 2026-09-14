@@ -1,99 +1,120 @@
- /* ---------- card ---------- */
-  .card {
-    display: flex;
-    flex-direction: column;
-    background: var(--superficie);
-    border: 1px solid var(--linha);
-    border-left: 3px solid var(--neon);
-    border-radius: var(--raio);
-    overflow: hidden;
-    min-width: 0;
-  }
- 
-  .card__foto {
-    position: relative;
-    aspect-ratio: 4 / 5;
-    background: var(--superficie-alta);
-  }
-  .card__foto img {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-    display: block;
-  }
-  /* avatar alternativo: aparece quando não há <img> ou quando a imagem falha */
-  .card__foto::after {
-    content: attr(data-iniciais);
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    font-family: var(--mono);
-    font-size: 2rem;
-    letter-spacing: .05em;
-    color: var(--neon);
-    background:
-      radial-gradient(circle at 50% 38%, rgba(34, 224, 124, .14), transparent 60%),
-      var(--superficie-alta);
-  }
- 
-  .card__corpo {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    gap: 8px;
-    padding: var(--espaco);
-    min-width: 0;
-  }
- 
-  .card__nome {
-    margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.3;
-    font-weight: 600;
-    overflow-wrap: anywhere;
-    hyphens: auto;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
- 
-  .card__meta {
-    margin: 0;
-    font-family: var(--mono);
-    font-size: .72rem;
-    color: var(--texto-fraco);
-    overflow-wrap: anywhere;
-  }
- 
-  .card__descricao {
-    margin: 4px 0 0;
-    font-size: .85rem;
-    line-height: 1.55;
-    color: var(--texto-fraco);
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
- 
-  .card__acao {
-    margin-top: auto;
-    padding-top: 14px;
-    font-family: var(--mono);
-    font-size: .75rem;
-    color: var(--neon);
-    text-decoration: none;
-    border-bottom: 0;
-    width: fit-content;
-  }
-  .card__acao:hover { text-decoration: underline; }
-  .card__acao:focus-visible {
-    outline: 2px solid var(--neon);
-    outline-offset: 3px;
-    border-radius: 3px;
-  }
+/* ------------------------------------------------------------------
+   Card de integrante — modelo com tamanho fixo.
+   Não depende do container: largura e altura são sempre as mesmas,
+   independente de o pai ser flex, grid ou block.
+   ------------------------------------------------------------------ */
+
+:root {
+  --card-largura: 260px;
+  --card-altura: 380px;
+  --card-foto-altura: 240px;
+
+  --superficie: #1b2338;
+  --superficie-alta: #232c45;
+  --linha: #333d5c;
+  --neon: #22e07c;
+  --texto: #eef1f7;
+  --texto-fraco: #9aa4bf;
+
+  --sans: "Poppins", "Inter", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+.card {
+  /* tamanho fixo: o flex-basis auto + flex-shrink 0 impedem que um
+     container flex estique ou comprima o card */
+  flex: 0 0 auto;
+  width: var(--card-largura);
+  height: var(--card-altura);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  background: var(--superficie);
+  border: 1px solid var(--linha);
+  border-top: 3px solid var(--neon);
+  border-radius: 12px;
+  overflow: hidden;
+  color: var(--texto);
+  font-family: var(--sans);
+}
+
+/* ---------- foto ---------- */
+
+.card__foto {
+  position: relative;
+  height: var(--card-foto-altura);
+  flex: 0 0 var(--card-foto-altura);
+  background: var(--superficie-alta);
+}
+
+.card__foto img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+/* avatar alternativo: aparece quando não há <img> ou quando ela falha */
+.card__foto::after {
+  content: attr(data-iniciais);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  color: var(--neon);
+  background: var(--superficie-alta);
+}
+
+/* ---------- corpo ---------- */
+
+.card__corpo {
+  flex: 1;
+  min-height: 0; /* permite que o texto corte em vez de esticar o card */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 16px;
+  box-sizing: border-box;
+}
+
+.card__nome {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__descricao {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--texto-fraco);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* linha tracejada + monoespaçada verde, como na referência */
+.card__meta {
+  margin: 0;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dashed var(--linha);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--neon);
+}

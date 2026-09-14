@@ -10,9 +10,7 @@ export function renderMural() {
         </div>
         <div class="card__corpo">
           <h3 class="card__nome">Carla Souza</h3>
-          <p class="card__meta">Design · turma 2026/1</p>
           <p class="card__descricao">Montou o guia de estilo da equipe e revisa os protótipos antes de cada entrega.</p>
-          <a class="card__acao" href="#">Ver perfil</a>
         </div>
       </article>
       
