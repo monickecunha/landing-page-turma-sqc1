@@ -151,7 +151,7 @@
  
 /* ---------- Tablet ---------- */ 
  
-@media (max-width: 768px) { 
+@media (min-width: 768px) { 
     .mural__container { 
         padding-inline: 1rem; 
     } 
@@ -169,7 +169,7 @@
  
     .mural__cards { 
         /* Continua com 2 cards */ 
-        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        grid-template-columns: repeat(4, minmax(0, 1fr)); 
         gap: 1rem; 
     } 
  
@@ -181,7 +181,7 @@
  
 /* ---------- Mobile ---------- */ 
  
-@media (max-width: 560px) { 
+@media (min-width: 992px) { 
     .mural { 
         padding-block: var(--spacing-xl); 
     } 
@@ -193,7 +193,7 @@
  
     .mural__cards { 
         /* Mantém 2 cards no celular */ 
-        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        grid-template-columns: repeat(6, minmax(0, 1fr)); 
         gap: 0.75rem; 
     } 
  
