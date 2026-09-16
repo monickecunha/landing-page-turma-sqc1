@@ -13,9 +13,10 @@
   color: var(--text-white);
   padding: 40px 8%;
   font-family: var(--font-display);
-  min-height: 100vh;
+  min-height: calc(100vh - 72px);
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .logo {
@@ -55,8 +56,54 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-top: 80px;
   gap: 40px;
+}
+
+@media (max-width: 992px) {
+  .identidade-container {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .identidade-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .identidade-botoes {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .identidade {
+    padding: 20px 5%;
+  }
+
+  .identidade-texto h1 {
+    font-size: 36px;
+  }
+
+  .slogan {
+    font-size: 14px;
+  }
+
+  .hero-symbol {
+    font-size: 150px;
+  }
+
+  .identidade-botoes {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .identidade-texto {
