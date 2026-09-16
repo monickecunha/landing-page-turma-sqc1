@@ -1,0 +1,154 @@
+
+
+/* ---------- Header ---------- */
+
+.membros__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--spacing-lg);
+}
+
+.membros__label {
+    flex-shrink: 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+/* ---------- Grid ---------- */
+
+.membros__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-lg);
+}
+
+
+/* ---------- Card ---------- */
+
+.membro-card {
+    position: relative; /* referência para o #01 no canto */
+
+    padding: var(--spacing-lg);
+
+    background-color: var(--color-bg-secondary);
+
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-md);
+
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.membro-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-border-hover);
+    border-left-color: var(--color-primary);
+}
+
+.membro-card__id {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+}
+
+
+/* ---------- Avatar ---------- */
+
+.membro-card__avatar {
+    position: relative; /* moldura para a foto */
+    overflow: hidden;   /* corta a foto no formato do círculo */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+    margin-bottom: var(--spacing-md);
+
+    background-color: var(--color-bg-primary);
+    border: 1px dashed var(--color-border-hover);
+    border-radius: 50%;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+.membro-card__avatar img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ---------- Nome e tag ---------- */
+
+.membro-card__nome {
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+
+    border-bottom: 1px solid var(--color-border);
+
+    font-size: var(--font-size-base);
+}
+
+.membro-card__tag {
+    display: inline-block;
+
+    padding: 0.25rem 0.6rem;
+
+    background-color: rgba(0, 230, 118, 0.12);
+    color: var(--color-primary);
+
+    border-radius: var(--radius-sm);
+}
+
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 992px) {
+    .membros__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .membros__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .membros__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 420px) {
+    .membros__grid {
+        grid-template-columns: 1fr;
+    }
+}
